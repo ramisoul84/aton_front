@@ -1,0 +1,65 @@
+<div *ngIf="!loggedInUser; else elseBlock">you should log in first!</div>
+
+<ng-template #elseBlock>
+  <div *ngIf="loggedInUser?.isAdmin">
+    <button class="add" (click)="addCLient()">Add Client</button>
+    <button class="edit" (click)="onToggleClients()">
+      {{ toggleClients ? "Show My Clients" : "Show All Clients" }}
+    </button>
+  </div>
+
+  <table>
+    <thead>
+      <th>Номер счета</th>
+      <th>Фамилия</th>
+      <th>Имя</th>
+      <th>Отчество</th>
+      <th>Дата рождения</th>
+      <th>ИНН</th>
+      <th>ФИО ответственного</th>
+      <th>Статус</th>
+      <th *ngIf="loggedInUser?.isAdmin">ACTIONS</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <td>{{ client.accountNumber }}</td>
+        <td>{{ client.surname }}</td>
+        <td>{{ client.name }}</td>
+        <td>{{ client.patronymic }}</td>
+        <td>{{ client.dateOfBirth }}</td>
+        <td>{{ client.inn }}</td>
+        <td>{{ client.responsibleUser }}</td>
+        <td>
+          <select
+            #status
+            (change)="changeStatus(client.accountNumber!, status.value)"
+          >
+            <option value="PENDING" [selected]="client.status === 'PENDING'">
+              PENDING
+            </option>
+            <option
+              value="IN_PROGRESS"
+              [selected]="client.status === 'IN_PROGRESS'"
+            >
+              IN_PROGRESS
+            </option>
+            <option value="REJECTED" [selected]="client.status === 'REJECTED'">
+              REJECTED
+            </option>
+            <option value="CLOSED" [selected]="client.status === 'CLOSED'">
+              CLOSED
+            </option>
+          </select>
+        </td>
+        <td *ngIf="loggedInUser?.isAdmin" class="actions">
+          <button (click)="editClient(client.accountNumber!)" class="edit">
+            EDIT
+          </button>
+          <button (click)="deleteCLient(client.accountNumber!)" class="delete">
+            DELETE
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>

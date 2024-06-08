@@ -1,0 +1,29 @@
+button {
+  border: 1px solid var(--color-light);
+  cursor: pointer;
+  color: var(--color-light);
+  width: fit-content;
+  padding: 0.4rem;
+  font-weight: bold;
+}
+
+.add {
+  background-color: green;
+  margin-bottom: 0.4rem;
+  width: 6rem;
+}
+
+.actions {
+  display: flex;
+  border: none;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.edit {
+  background-color: blue;
+}
+
+.delete {
+  background-color: red;
+}

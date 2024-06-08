@@ -1,0 +1,71 @@
+<form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+  <div class="input-wrapper-fullname">
+    <input
+      type="text"
+      id="surname"
+      formControlName="surname"
+      autocomplete="off"
+      placeholder="Фамилия"
+    />
+    <input
+      type="text"
+      id="name"
+      formControlName="name"
+      autocomplete="off"
+      placeholder="Имя"
+    />
+    <input
+      type="text"
+      id="patronymic"
+      formControlName="patronymic"
+      autocomplete="off"
+      placeholder="Отчество"
+    />
+  </div>
+
+  <div class="input-wrapper">
+    <label for="dateOfBirth">Дата рождения</label>
+    <input
+      type="date"
+      min="1970-1-1"
+      id="dateOfBirth"
+      name="dateOfBirth"
+      formControlName="dateOfBirth"
+    />
+  </div>
+  <div class="input-wrapper">
+    <label for="inn">ИНН</label>
+    <input
+      type="text"
+      id="inn"
+      formControlName="inn"
+      autocomplete="off"
+      placeholder="Enter a 10 digits INN number"
+    />
+  </div>
+  <div class="input-wrapper">
+    <label for="responsibleUser">ФИО ответственного</label>
+    <select id="responsibleUser" formControlName="responsibleUser">
+      <option value="" disabled selected hidden>-- Choose a User --</option>
+      <option *ngFor="let user of users" value="{{ user.id }}">
+        {{ user.fullName }}
+      </option>
+    </select>
+  </div>
+  <div class="input-wrapper">
+    <label for="status">Статус</label>
+    <select id="status" formControlName="status">
+      <option value="PENDING" [defaultSelected]="true" [selected]>
+        PENDING
+      </option>
+      <option value="IN_PROGRESS">IN_PROGRESS</option>
+      <option value="REJECTED">REJECTED</option>
+      <option value="CLOSED">CLOSED</option>
+    </select>
+  </div>
+  <input
+    type="submit"
+    [value]="selectedClient !== 0 ? 'EDIT' : 'ADD'"
+    [disabled]="!clientForm.valid"
+  />
+</form>

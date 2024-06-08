@@ -1,5 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  --color-dark: #000;
+  --color-light: #fff;
+  --color-effect: #929292;
+  --color-logo: #d8003f;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  margin: 0 2rem;
+  font-family: "Inter", sans-serif;
+  background-image: url("./assets/bg.png");
+  background-size: 100% 100%;
+  min-height: 100vh;
+  color: var(--color-light);
+}
+
+main {
+  padding: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 3rem 1rem 0.2rem 1rem;
+  position: relative;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--color-effect);
+  padding: 0.4rem 2rem;
+  color: var(--color-light);
+  font-size: 1rem;
+  font-weight: lighter;
+}
+
+input:focus {
+  border: none;
+  outline: 0;
+  border-bottom: 2px solid var(--color-logo);
+}
+
+label {
+  color: var(--color-effect);
+}
+
+input[type="submit"] {
+  background-color: var(--color-logo);
+  color: var(--color-light);
+  border: none;
+  border-radius: 0.4rem;
+}
+input[type="submit"]:hover {
+  cursor: pointer;
+  color: var(--color-dark);
+}
+input[type="submit"]:disabled {
+  background-color: var(--color-effect);
+  color: var(--color-dark);
+  opacity: 0.4;
+  cursor: default;
+}
+
+form p {
+  color: var(--color-effect);
+}
+
+form a {
+  color: var(--color-light);
+}
+
+/* Table */
+table {
+  width: 100%;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-light);
+  border-collapse: collapse;
+}
+th {
+  font-weight: bold;
+  padding: 0.4rem;
+  background: var(--color-logo);
+  color: var(--color-light);
+  border: 1px solid var(--color-light);
+}
+td {
+  border: 1px solid var(--color-light);
+  padding: 0.4rem;
+  text-align: center;
+}
+tbody tr:nth-child(even) {
+  background: rgba(216, 0, 63, 0.4);
 }

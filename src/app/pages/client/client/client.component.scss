@@ -1,0 +1,38 @@
+form {
+  max-width: 40rem;
+  background: transparent;
+  padding: 2rem;
+  margin: 2rem auto;
+  box-shadow: 1px 1px 10px var(--color-effect);
+  border-radius: 0.6rem;
+  gap: 1.6rem;
+}
+.input-wrapper-fullname {
+  display: flex;
+  gap: 1.5rem;
+}
+
+input {
+  height: 2rem;
+  padding: 0 1rem;
+  outline: none;
+  border: none;
+  width: 100%;
+  background-color: white;
+  color: black;
+}
+
+select {
+  height: 2rem;
+}
+option {
+  height: 2rem;
+  background-color: transparent;
+}
+
+input[type="submit"] {
+  background-color: var(--color-logo);
+  outline: none;
+  border: none;
+  margin-top: 1rem;
+}

@@ -1,0 +1,29 @@
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2rem;
+  border-top: 1px solid var(--color-effect);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  background-color: rgba(41, 41, 41, 0.397);
+}
+
+p:first-of-type {
+  margin-left: 1rem;
+  color: var(--color-effect);
+}
+span {
+  color: var(--color-light);
+}
+p:last-of-type {
+  justify-self: flex-end;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.admin {
+  font-size: 0.8rem;
+  color: var(--color-effect);
+}

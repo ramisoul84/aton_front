@@ -1,0 +1,29 @@
+<div *ngIf="!loggedInUser; else elseBlock">you should log in first!</div>
+<ng-template #elseBlock>
+  <table>
+    <thead>
+      <th>Surname</th>
+      <th>Name</th>
+      <th>Patronymic</th>
+      <th>Username</th>
+      <th>IsAdmin</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.surname }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.patronymic ? user.patronymic : "-" }}</td>
+        <td>{{ user.username }}</td>
+        <td>
+          <input
+            type="checkbox"
+            [checked]="user.isAdmin"
+            [disabled]="!loggedInUser"
+            (change)="onChange(user.id!)"
+            [disabled]="!loggedInUser?.isAdmin"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>

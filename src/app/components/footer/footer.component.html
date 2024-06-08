@@ -1,0 +1,7 @@
+<footer *ngIf="loggedInUser">
+  <p>
+    user<span class="admin" *ngIf="loggedInUser.isAdmin"> - [ADMIN]</span>:
+    <span>{{ loggedInUser.username }} </span>
+  </p>
+  <p (click)="logout()">Logout</p>
+</footer>

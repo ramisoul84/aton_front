@@ -1,0 +1,39 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="input-wrapper">
+    <label for="surname">Last Name</label>
+    <input
+      type="text"
+      id="surname"
+      formControlName="surname"
+      autocomplete="off"
+    />
+  </div>
+  <div class="input-wrapper">
+    <label for="name">First Name</label>
+    <input type="text" id="name" formControlName="name" autocomplete="off" />
+  </div>
+  <div class="input-wrapper">
+    <label for="patronymic">Middle Name</label>
+    <input
+      type="text"
+      id="patronymic"
+      formControlName="patronymic"
+      autocomplete="off"
+    />
+  </div>
+  <div class="input-wrapper">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      id="username"
+      formControlName="username"
+      autocomplete="off"
+    />
+  </div>
+  <div class="input-wrapper">
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password" />
+  </div>
+  <input type="submit" value="Register" [disabled]="!registerForm.valid" />
+  <p>have an account! <a routerLink="/login">Login</a></p>
+</form>
