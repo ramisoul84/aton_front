@@ -68,3 +68,14 @@ a:hover::before {
 .dis {
   cursor: default;
 }
+
+@media screen and (max-width: 600px) {
+  a {
+    font-size: 0.6rem;
+  }
+  .login,
+  .logo,
+  header {
+    height: 3rem;
+  }
+}

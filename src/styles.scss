@@ -108,3 +108,9 @@ td {
 tbody tr:nth-child(even) {
   background: rgba(216, 0, 63, 0.4);
 }
+
+@media screen and (max-width: 600px) {
+  main {
+    padding: 1rem 0;
+  }
+}

@@ -24,7 +24,12 @@ export class UserService {
   }
 
   getUser(id: number) {
-    return this.http.get<User>(`${this.apiUrl}/user/${id}`);
+    return this.http.get<User>(`${this.apiUrl}/user/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${this.auth.user.value?.access_token}`,
+      },
+    });
   }
 
   updateUser(id: number, user: User) {
