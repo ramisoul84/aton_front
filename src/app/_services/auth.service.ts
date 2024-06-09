@@ -34,6 +34,9 @@ export class AuthService {
       this.user.next(data);
       localStorage.setItem(this.storageName, JSON.stringify(data));
       this.router.navigate(['']);
+      setTimeout(() => {
+        this.logout();
+      }, 1000 * 60 * 60 * 24);
     });
   }
 
