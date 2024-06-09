@@ -17,8 +17,9 @@ export class AuthService {
   user$ = this.user.asObservable();
 
   constructor(private http: HttpClient, private router: Router) {
-    this.apiUrl = environment.apiUrl;
     this.storageName = environment.storageName;
+    this.user.next(JSON.parse(localStorage.getItem(this.storageName)!));
+    this.apiUrl = environment.apiUrl;
   }
 
   register(user: RegisterUserDto) {

@@ -16,12 +16,15 @@ export class UsersComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.authService.user$.subscribe((data) => (this.loggedInUser = data));
-    if (this.loggedInUser) {
-      this.userService.getAllUsers().subscribe((data) => {
-        this.users = data;
-      });
-    }
+    this.authService.user$.subscribe((data) => {
+      this.loggedInUser = data;
+      console.log(data);
+      if (this.loggedInUser) {
+        this.userService.getAllUsers().subscribe((data) => {
+          this.users = data;
+        });
+      }
+    });
   }
 
   onChange(id: number) {
